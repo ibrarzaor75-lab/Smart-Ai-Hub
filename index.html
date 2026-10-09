@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Smart AI Hub: free tools for captions, hashtags, bios, and video prompts.">
+<title>Smart AI Hub — Free AI Creator Tools</title>
+<style>
+:root{--bg:#0b1020;--panel:#121a30;--panel2:#18233e;--text:#f5f7ff;--muted:#aab6d3;--accent:#7c5cff;--accent2:#28d7c0;--line:#293657}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top right,#1b2450 0,#0b1020 48%);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);line-height:1.55}
+header{max-width:1100px;margin:auto;padding:24px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{font-weight:900;font-size:1.25rem;letter-spacing:.2px}.brand span{color:var(--accent2)}nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:.95rem}
+.hero{max-width:1100px;margin:auto;padding:50px 20px 30px;text-align:center}.badge{display:inline-block;border:1px solid #3c4770;background:#151d37;color:#c8d1ff;padding:6px 12px;border-radius:99px;font-size:.82rem}
+h1{font-size:clamp(2.25rem,6vw,4.2rem);line-height:1.08;margin:20px 0 14px;letter-spacing:-1.5px}.gradient{background:linear-gradient(90deg,#8f7bff,#32e6d0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:650px;margin:0 auto;color:var(--muted);font-size:1.05rem}.search{max-width:520px;margin:25px auto 0;display:flex;gap:8px}.search input{flex:1;min-width:0}
+input,textarea,select{width:100%;background:#0d1428;border:1px solid var(--line);border-radius:11px;padding:12px;color:var(--text);font:inherit;outline:none}input:focus,textarea:focus,select:focus{border-color:var(--accent)}
+button{border:0;border-radius:11px;background:linear-gradient(100deg,var(--accent),#5e8cff);color:white;font:inherit;font-weight:750;padding:11px 16px;cursor:pointer}button:hover{filter:brightness(1.1)}.section{max-width:1100px;margin:0 auto;padding:22px 20px 40px}.section h2{font-size:1.65rem;margin:8px 0}.sub{color:var(--muted);margin-top:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:16px;margin-top:20px}.card{background:linear-gradient(145deg,var(--panel),#10172a);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 10px 30px #0002}.icon{font-size:1.7rem}.card h3{margin:8px 0 4px}.card p{color:var(--muted);font-size:.93rem;min-height:45px}.card button{width:100%;margin-top:8px}.toolbox{display:none;margin-top:24px}.toolbox.active{display:block}.toolbox .card{max-width:760px;margin:auto}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.formgrid .full{grid-column:1/-1}.output{white-space:pre-wrap;background:#0a1122;border:1px solid var(--line);padding:15px;border-radius:12px;margin-top:14px;min-height:65px;color:#e3e9ff}.ad-slot{max-width:970px;min-height:90px;margin:18px auto;padding:12px;border:1px dashed #485477;border-radius:12px;text-align:center;color:#7f8bad;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+footer{border-top:1px solid var(--line);padding:28px 20px;color:var(--muted);text-align:center;font-size:.9rem}footer a{color:#b9adff}.notice{color:#f4d99b;font-size:.88rem;margin-top:12px}
+@media(max-width:600px){header{padding:18px}.hero{padding-top:30px}.search{flex-direction:column}.formgrid{grid-template-columns:1fr}.formgrid .full{grid-column:auto}nav a{margin-left:10px}}
+</style>
+</head>
+<body>
+<header><div class="brand">✨ Smart <span>AI</span> Hub</div><nav><a href="#tools">Tools</a><a href="#about">About</a></nav></header>
+<main>
+<section class="hero">
+<div class="badge">FREE CREATOR TOOLS · MOBILE FRIENDLY</div>
+<h1>Create more.<br><span class="gradient">Post smarter.</span></h1>
+<p>Simple tools for creators: generate video prompts, social captions, hashtags and profile bios in seconds.</p>
+<div class="search"><input id="search" placeholder="Search tools..." aria-label="Search tools"><button onclick="filterTools()">Search</button></div>
+</section>
+<div class="ad-slot"><!-- ADSTERRA TOP AD: paste your approved Adsterra banner/native ad code here -->Ad space — add your approved Adsterra code here</div>
+<section class="section" id="tools"><h2>Explore the tools</h2><p class="sub">Choose a tool to get started. These built-in generators use templates and work without an API key.</p>
+<div class="grid" id="toolGrid">
+<article class="card toolcard" data-name="video prompt cinematic shorts"><div class="icon">🎬</div><h3>Video Prompt Generator</h3><p>Create cinematic prompts for AI video generators and Shorts.</p><button onclick="openTool('video')">Open tool →</button></article>
+<article class="card toolcard" data-name="hashtag generator youtube instagram viral"><div class="icon">#️⃣</div><h3>Hashtag Generator</h3><p>Build a hashtag set for your video topic and platform.</p><button onclick="openTool('hashtags')">Open tool →</button></article>
+<article class="card toolcard" data-name="caption description social post"><div class="icon">✍️</div><h3>Caption Generator</h3><p>Make short, engaging captions for posts and videos.</p><button onclick="openTool('caption')">Open tool →</button></article>
+<article class="card toolcard" data-name="bio profile instagram youtube"><div class="icon">👤</div><h3>Bio Generator</h3><p>Write a clean creator bio for your social profile.</p><button onclick="openTool('bio')">Open tool →</button></article>
+</div>
+<div class="toolbox" id="toolbox"><div class="card"><h2 id="toolTitle">Tool</h2><div id="toolForm"></div><div class="output" id="output" aria-live="polite">Your result will appear here.</div><button onclick="copyOutput()">Copy result</button> <button onclick="closeTool()" style="background:#263452">Close</button><p class="notice">Note: these are template-based tools, not a connected AI model. Real AI generation requires an API or external AI service.</p></div></div>
+</section>
+<div class="ad-slot"><!-- ADSTERRA BOTTOM AD: paste another approved ad unit code here -->Ad space — add your approved Adsterra code here</div>
+<section class="section" id="about"><h2>About Smart AI Hub</h2><p class="sub">Smart AI Hub offers handy starter tools for content creators. Always review generated content before posting. We do not promise views, virality or earnings.</p><p class="sub">Privacy tip: don't enter passwords, private information, or confidential material into online tools.</p></section>
+</main>
+<footer>© <span id="year"></span> Smart AI Hub · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a><br>Made for creators.</footer>
+<script>
+document.getElementById('year').textContent=new Date().getFullYear();
+let currentTool='';
+const forms={
+video:{title:'🎬 Video Prompt Generator',html:`<div class="formgrid"><div><label>Topic / story</label><input id="topic" placeholder="e.g. mermaid saves a sailor"></div><div><label>Style</label><select id="style"><option>Cinematic action</option><option>Emotional story</option><option>Funny comedy</option><option>Fantasy adventure</option><option>Realistic documentary</option></select></div><div><label>Duration</label><select id="duration"><option>10 seconds</option><option>20 seconds</option><option>30 seconds</option><option>60 seconds</option></select></div><div><label>Platform</label><select id="platform"><option>YouTube Shorts</option><option>Instagram Reels</option><option>TikTok</option></select></div><div class="full"><label>Extra details</label><textarea id="extra" rows="2" placeholder="Camera movement, location, mood..."></textarea></div><div class="full"><button onclick="generate('video')">Generate prompt</button></div></div>`},
+hashtags:{title:'#️⃣ Hashtag Generator',html:`<div class="formgrid"><div><label>Video topic</label><input id="topic" placeholder="e.g. funny village comedy"></div><div><label>Platform</label><select id="platform"><option>YouTube Shorts</option><option>Instagram Reels</option><option>TikTok</option></select></div><div class="full"><button onclick="generate('hashtags')">Generate hashtags</button></div></div>`},
+caption:{title:'✍️ Caption Generator',html:`<div class="formgrid"><div class="full"><label>Post or video topic</label><input id="topic" placeholder="e.g. helping a poor family"></div><div><label>Tone</label><select id="tone"><option>Emotional</option><option>Funny</option><option>Motivational</option><option>Mysterious</option><option>Professional</option></select></div><div><label>Length</label><select id="length"><option>Short</option><option>Medium</option></select></div><div class="full"><button onclick="generate('caption')">Generate caption</button></div></div>`},
+bio:{title:'👤 Bio Generator',html:`<div class="formgrid"><div><label>Your name or page name</label><input id="topic" placeholder="e.g. Smart AI Hub"></div><div><label>Creator type</label><select id="kind"><option>Video creator</option><option>AI enthusiast</option><option>Comedy creator</option><option>Motivational page</option><option>Business</option></select></div><div class="full"><label>Style</label><select id="tone"><option>Professional</option><option>Friendly</option><option>Cool and modern</option></select></div><div class="full"><button onclick="generate('bio')">Generate bio</button></div></div>`}
+};
+function openTool(name){currentTool=name;document.getElementById('toolTitle').textContent=forms[name].title;document.getElementById('toolForm').innerHTML=forms[name].html;document.getElementById('output').textContent='Your result will appear here.';document.getElementById('toolbox').classList.add('active');document.getElementById('toolbox').scrollIntoView({behavior:'smooth',block:'start'});}
+function closeTool(){document.getElementById('toolbox').classList.remove('active');}
+function val(id){let e=document.getElementById(id);return e?e.value.trim():''}
+function generate(type){
+ let topic=val('topic')||'your topic', result='';
+ if(type==='video'){result=`Create a ${val('duration')} ${val('style').toLowerCase()} video for ${val('platform')}. Story: ${topic}. Show a strong opening hook in the first 2 seconds, clear character actions, expressive faces, dynamic camera movement, cinematic lighting, detailed environment, smooth motion, high-quality visuals, and a satisfying ending. ${val('extra')} Avoid text glitches, extra fingers, distorted faces, and inconsistent characters. 9:16 vertical format.`}
+ if(type==='hashtags'){let words=topic.toLowerCase().replace(/[^a-z0-9 ]/g,'').split(/\s+/).filter(Boolean);let tags=['#Shorts','#ViralVideo','#Trending','#ContentCreator','#ExplorePage'];words.slice(0,4).forEach(w=>tags.push('#'+w.charAt(0).toUpperCase()+w.slice(1)));let plat=val('platform');tags.push(plat==='YouTube Shorts'?'#YouTubeShorts':plat==='Instagram Reels'?'#InstagramReels':'#TikTok');result=[...new Set(tags)].join(' ')}
+ if(type==='caption'){let tone=val('tone');let intro={Emotional:'Some moments touch the heart and stay with us.',Funny:'Wait for it — this one might make you smile!',Motivational:'Small steps today can create a stronger tomorrow.',Mysterious:'There is more to this story than meets the eye.',Professional:'Here is something worth sharing:'};result=`${intro[tone]} ${topic}. ${val('length')==='Short'?'Watch, enjoy, and share your thoughts!':'Every story has a moment that makes it special. What do you think? Share your thoughts in the comments and follow for more.'}`}
+ if(type==='bio'){let kind=val('kind'),tone=val('tone');result=`${topic} | ${kind}\\n${tone==='Professional'?'Creating useful content and fresh ideas.':tone==='Friendly'?'Good vibes, creative ideas, and content for everyone.':'Ideas. Creativity. New energy.'}\\nFollow for more updates and inspiration.`}
+ document.getElementById('output').textContent=result;
+}
+function copyOutput(){let text=document.getElementById('output').textContent;navigator.clipboard.writeText(text).then(()=>alert('Copied!')).catch(()=>alert('Please select and copy the result manually.'))}
+function filterTools(){let q=document.getElementById('search').value.toLowerCase();document.querySelectorAll('.toolcard').forEach(c=>c.style.display=c.dataset.name.includes(q)||c.innerText.toLowerCase().includes(q)?'block':'none');document.getElementById('tools').scrollIntoView({behavior:'smooth'});}
+document.getElementById('search').addEventListener('keydown',e=>{if(e.key==='Enter')filterTools()});
+</script>
+</body></html>
